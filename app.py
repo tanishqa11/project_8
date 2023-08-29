@@ -7,7 +7,7 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/run_script', methods=['POST'])
+@app.route('/run_script', methods=['GET','POST'])
 def run_script():
     subprocess.run(['python', 'jira api.py'])
     return "Script has been triggered!"
