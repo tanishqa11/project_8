@@ -4,21 +4,21 @@ from requests.auth import HTTPBasicAuth
 
 
 #authenticating jira 
-JIRA_API_URL = "https://redciffelabs.atlassian.net/rest/api/3/search"
-JIRA_AUTH_TOKEN = "ATATT3xFfGF0VnSYMkJV6Psy2Bw-MGUTOfG39o91-UtHokEkCPlAVHZ_kbB-gmFaKQ4H22288i6P5VZdYGFJ62aAnqxMdODMhe9B9FMqCYI2vgKNf_gr9_B1vdVcwXJUjtcCDhdbEl6eYajTUfyMZjcAubWq3t7TN-h672qE-tdc1bP9F2SLXcs=BCF8B968"
+JIRA_API_URL = "" 
+JIRA_AUTH_TOKEN = ""     #ADD YOURS 
 headers = {
   "Accept": "application/json",
   "content-Type":"application/json"
 }
 query={
-    "jql":"project=CRM AND reporter= sachin.sharma"
+    "jql":"project=CRM AND reporter= "
 }
 
 response = requests.get(
    JIRA_API_URL,
    headers=headers,
    params=query,
-   auth=("sachin.sharma@redcliffelabs.com", JIRA_AUTH_TOKEN)
+   auth=("", JIRA_AUTH_TOKEN)
 )
 data=response.json()
 issue=data["issues"]
@@ -36,8 +36,8 @@ for  i in issue:
     })
 
 # Notion API and authentication details
-NOTION_AUTH_TOKEN="secret_uLN6nORurOs4SuddHzkzIL44T6lDo4SWU5iqIstYPRc"
-NOTION_DATABASE_ID="d3597fe2c9fd4db59cce22df4956fa17"
+NOTION_AUTH_TOKEN=""
+NOTION_DATABASE_ID=""
 url=f"https://api.notion.com/v1/databases/{NOTION_DATABASE_ID}/query"
 
 # Send data to Notion
